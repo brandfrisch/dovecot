@@ -1,0 +1,14 @@
+---
+dependency:
+  name: galaxy
+
+docker:
+  containers:
+    - name: dovecot
+      image: brandfrisch/ubuntu-16.04
+      image_version: 'latest'
+      command: /lib/systemd/systemd
+      privileged: true
+
+verifier:
+  name: goss

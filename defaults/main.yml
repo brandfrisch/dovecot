@@ -1,0 +1,15 @@
+---
+
+dovecot_address: 0.0.0.0
+dovecot_ports:
+  - 110
+  - 143
+  - 993
+  - 995
+
+dovecot_packages:
+  - dovecot-core
+
+dovecot_additional_packages: []
+
+dovecot_config_files: []

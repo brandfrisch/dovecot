@@ -1,0 +1,33 @@
+---
+# tasks file for dovecot
+
+- name: Install dovecot packages
+  package:
+    name: "{{ item }}"
+  with_items:
+    - "{{ dovecot_packages }}"
+    - "{{ dovecot_additional_packages }}"
+  tags:
+    - package
+    - dovecot
+
+- name: Write dovecot config
+  when: dovecot_config_files is defined
+  template:
+    src: "{{ item }}"
+    dest: "/etc/dovecot/conf.d/{{ item | basename | replace('.j2', '') | mandatory }}"
+  with_items:
+    - "{{ dovecot_config_files }}"
+  notify: restart dovecot
+  tags:
+    - config
+    - dovecot
+
+- name: Start dovecot
+  service:
+    name: dovecot
+    enabled: yes
+    state: started
+  tags:
+    - service
+    - dovecot
