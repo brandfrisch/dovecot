@@ -1,4 +1,4 @@
-dovecot [![Build Status](https://travis-ci.org/brandfrisch/dovecot.svg?branch=master)](https://travis-ci.org/brandfrisch/dovecot)
+dovecot
 =========
 
 This is a rule to setup dovecot on a unix system
