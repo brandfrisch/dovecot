@@ -1,0 +1,21 @@
+---
+package:
+  dovecot-core:
+    installed: true
+service:
+  dovecot:
+    enabled: true
+    running: true
+user:
+  dovecot:
+    exists: true
+    groups:
+      - dovecot
+    home: /usr/lib/dovecot
+    shell: /bin/false
+group:
+  dovecot:
+    exists: true
+process:
+  dovecot:
+    running: true
