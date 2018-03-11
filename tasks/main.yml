@@ -16,6 +16,9 @@
   template:
     src: "{{ item }}"
     dest: "/etc/dovecot/conf.d/{{ item | basename | replace('.j2', '') | mandatory }}"
+    owner: root
+    group: root
+    mode: 0644
   with_items:
     - "{{ dovecot_config_files }}"
   notify: restart dovecot
