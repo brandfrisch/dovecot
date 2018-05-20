@@ -11,6 +11,15 @@
     - package
     - dovecot
 
+- name: Add user dovecot to group ssl-cert
+  user:
+    name: dovecot
+    groups: ssl-cert
+    append: true
+  tags:
+    - config
+    - dovecot
+
 - name: Write dovecot config
   when: dovecot_config_files is defined
   template:
